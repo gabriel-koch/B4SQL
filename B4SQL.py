@@ -16,7 +16,7 @@ def bendford (table, column,
     con = create_engine(server)  #http://docs.sqlalchemy.org/en/latest/core/engines.html get
     df = pd.read_sql(table, con)
 
-    df = df[(df[column] != 0)] #Drop rows with values = 0 or '' 
+    df = df[(df[column] != 0)] #Drop rows with values = 0
     sr_frtd = df[column].astype(str).str.slice(digit -1 ,digit) #Creates a series with only the first digit 
     sr_frtd = sr_frtd[(sr_frtd) != '']
 
